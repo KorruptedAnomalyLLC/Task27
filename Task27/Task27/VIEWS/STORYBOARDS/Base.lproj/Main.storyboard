@@ -9,16 +9,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Tasks-->
         <scene sceneID="fsm-lT-AGC">
             <objects>
                 <tableViewController id="4jw-qx-Z7C" customClass="TaskListTableViewController" customModule="Task27" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="T2g-qW-Qrz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.35697191140000001" green="0.87777601520000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="1" green="0.3736549139" blue="0.047485314610000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="QhC-es-imL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="80" id="QhC-es-imL">
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QhC-es-imL" id="Lez-AY-DGU">
@@ -55,11 +55,11 @@
                             <outlet property="delegate" destination="4jw-qx-Z7C" id="4Va-q3-au7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Flq-BA-APU">
+                    <navigationItem key="navigationItem" title="Tasks" id="Flq-BA-APU">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lww-33-cJV">
                             <color key="tintColor" red="1" green="0.0" blue="0.68379173432082307" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="R4l-Dg-xna" kind="show" id="qOZ-wN-8ne"/>
+                                <segue destination="R4l-Dg-xna" kind="show" id="ALM-o5-fLj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -75,7 +75,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="SWp-BH-lYN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.87273953045685282" green="0.4083328177858741" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <sections>
                             <tableViewSection headerTitle="Name" id="hCs-YT-481">
                                 <cells>
@@ -94,6 +94,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.99851284900000004" green="0.0" blue="0.68277483269999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="F89-uc-EZm" secondAttribute="bottom" constant="5" id="29F-3V-YLo"/>
                                                 <constraint firstItem="F89-uc-EZm" firstAttribute="leading" secondItem="l8W-2G-4aV" secondAttribute="leading" constant="10" id="Cut-ey-sNh"/>
@@ -128,6 +129,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Pgy-wq-L35" secondAttribute="trailing" constant="10" id="vF8-wE-nFt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.99851284900000004" green="0.0" blue="0.68277483269999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -156,6 +158,7 @@
                                                 <constraint firstItem="Drg-xh-ByK" firstAttribute="top" secondItem="5aa-87-OUi" secondAttribute="top" constant="5" id="pkP-vG-rWl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.99851284900000004" green="0.0" blue="0.68277483269999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -167,10 +170,23 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="pid-XJ-bUn">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="F2b-gp-Cfi"/>
-                            <barButtonItem systemItem="cancel" id="CUQ-D8-Vps"/>
+                            <barButtonItem systemItem="save" id="F2b-gp-Cfi">
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="R4l-Dg-xna" id="pOZ-Qx-xwD"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="cancel" id="CUQ-D8-Vps">
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="R4l-Dg-xna" id="rIc-FM-W69"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="taskDueTextField" destination="Pgy-wq-L35" id="Ugd-p7-DKg"/>
+                        <outlet property="taskNameTextField" destination="F89-uc-EZm" id="ivh-Tn-RK6"/>
+                        <outlet property="taskNotesTextView" destination="Drg-xh-ByK" id="z0k-j7-4Po"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4O9-QV-UjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,7 +203,7 @@
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="0.0" blue="0.68379173429999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <color key="textShadowColor" red="1" green="0.50298597089999997" blue="0.0028394792260000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <offsetWrapper key="textShadowOffset" horizontal="2" vertical="1"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="1" vertical="2"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
